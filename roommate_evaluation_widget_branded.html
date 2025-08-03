@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Roommate Evaluation Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1b9e96 0%, #064c58 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #a2f6de, #1b9e96, #064c58);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1b9e96, #064c58);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .features {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .features h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1b9e96;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #1b9e96, #064c58);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(27, 158, 150, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 158, 150, 0.4);
+            background: linear-gradient(135deg, #a2f6de, #1b9e96);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .info-text {
+            color: #777;
+            font-size: 14px;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
+        .info-text a {
+            color: #1b9e96;
+            text-decoration: none;
+        }
+
+        .info-text a:hover {
+            color: #064c58;
+            text-decoration: underline;
+        }
+
+        .loading {
+            display: none;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1b9e96;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            display: none;
+            background: #e8f8f7;
+            color: #064c58;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #a2f6de;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🏠</div>
+        <h1>Get Your Roommate Evaluation Tool</h1>
+        <p class="subtitle">Get your own editable copy of the Roommate Compatibility Evaluation with smart rating system and automatic compatibility scoring!</p>
+        
+        <div class="features">
+            <h3>What You'll Get:</h3>
+            <ul class="feature-list">
+                <li>Complete roommate evaluation questionnaire</li>
+                <li>Smart rating system with emoji dropdowns</li>
+                <li>Automatic compatibility scoring (Great/Good/Fair/Poor fit)</li>
+                <li>Your own private copy in Google Sheets</li>
+                <li>Fully editable and customizable</li>
+                <li>Professional evaluation framework</li>
+            </ul>
+        </div>
+
+        <button class="cta-button" onclick="createCopy()">
+            Get My Evaluation Tool - FREE!
+        </button>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Creating your personal evaluation tool...</p>
+        </div>
+
+        <div class="success-message" id="success">
+            <strong>Success!</strong> Your personal roommate evaluation tool has been created. The link will open in a new tab.
+        </div>
+
+        <div class="error-message" id="error">
+            <strong>Oops!</strong> There was an issue creating your copy. Please try the manual method below.
+        </div>
+
+        <p class="info-text">
+            <strong>How it works:</strong> Clicking the button above will create your own personal copy of the roommate evaluation tool in Google Sheets. You'll have full editing access and the smart compatibility scoring will work automatically!
+        </p>
+
+        <p class="info-text">
+            <strong>Alternative method:</strong> If the automatic copy doesn't work, you can manually copy the sheet by visiting the <a href="https://docs.google.com/spreadsheets/d/1am0IWDX_r2OfzthkkrxQvF_Dlm9JV74j/edit?usp=sharing" target="_blank">original sheet</a> and clicking File → Make a copy.
+        </p>
+    </div>
+
+    <script>
+        function createCopy() {
+            // Show loading state
+            document.getElementById('loading').style.display = 'block';
+            document.querySelector('.cta-button').style.display = 'none';
+            document.getElementById('success').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+
+            // Original sheet ID for roommate evaluation
+            const originalSheetId = '1am0IWDX_r2OfzthkkrxQvF_Dlm9JV74j';
+            
+            // Method 1: Try the copy URL approach
+            const copyUrl = `https://docs.google.com/spreadsheets/d/${originalSheetId}/copy`;
+            
+            // Open the copy URL in a new tab
+            const newWindow = window.open(copyUrl, '_blank');
+            
+            // Check if the window opened successfully
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                
+                if (newWindow && !newWindow.closed) {
+                    // Success - window opened
+                    document.getElementById('success').style.display = 'block';
+                    
+                    // Show button again after a delay
+                    setTimeout(() => {
+                        document.querySelector('.cta-button').style.display = 'inline-block';
+                    }, 3000);
+                } else {
+                    // Error - popup blocked or failed
+                    document.getElementById('error').style.display = 'block';
+                    document.querySelector('.cta-button').style.display = 'inline-block';
+                    
+                    // Fallback: redirect to the copy URL
+                    setTimeout(() => {
+                        window.open(copyUrl, '_blank');
+                    }, 2000);
+                }
+            }, 1500);
+        }
+
+        // Alternative function for direct navigation
+        function openCopyPage() {
+            const originalSheetId = '1am0IWDX_r2OfzthkkrxQvF_Dlm9JV74j';
+            const copyUrl = `https://docs.google.com/spreadsheets/d/${originalSheetId}/copy`;
+            window.open(copyUrl, '_blank');
+        }
+
+        // Track button clicks for analytics (optional)
+        function trackCopyAttempt() {
+            // Add your analytics tracking here
+            console.log('Roommate evaluation copy attempt tracked');
+        }
+
+        // Add click tracking
+        document.querySelector('.cta-button').addEventListener('click', trackCopyAttempt);
+    </script>
+</body>
+</html>
+
